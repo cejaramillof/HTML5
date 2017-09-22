@@ -5,14 +5,27 @@
     <title>Etiqueta vídeo</title>
   </head>
   <body>
-    <video src="./video.mp4" autoplay>
+    <video src="./video.mp4" autoplay loop controls muted width="400" height="400">
     </video>
-    <video autoplay loop controls muted width="400" height="400">
+    <video id="video" muted>
       <!-- Altura y anchura es mejor editar por acá que vía CSS porque podría estirar o deformar el video -->
       <source src="./video.mp4" type="video/mp4"/>
       <source src="./video.ogg" type="video/ogg"/>
       <source src="./video.webm" type="video/webm"/>
       Tu navegador no soporta la etiqueta.
-    </video>    
+    </video>
+    <button id="playButton">Reproducir</button>
+    <button id="pauseButton">Pausar</button>
+    <script type="text/javascript">
+      let video = document.getElementById('video');
+      let playButton = document.getElementById('playButton');
+      let pauseButton = document.getElementById('pauseButton');
+      playButton.addEventListener('click',function(){
+        video.play();
+      })
+      pauseButton.addEventListener('click',function(){
+        video.pause();
+      })      
+    </script>
   </body>
 </html>
