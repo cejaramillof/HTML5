@@ -19,6 +19,8 @@
     <button id="stopButton">Detener</button>
     <button id="backwardButton">&lt;&lt;</button>
     <button id="forwardButton">&gt;&gt;</button>
+    <button id="volumeUpButton">+</button>    
+    <button id="volumeDownButton">-</button>
     <script type="text/javascript">
       let video = document.getElementById('video');
       
@@ -29,7 +31,19 @@
       let backwardButton = document.getElementById('backwardButton');
       let forwardButton = document.getElementById('forwardButton');
       
+      let volumeUpButton = document.getElementById('volumeUpButton');
+      let volumeDownButton = document.getElementById('volumeDownButton');      
+      
       playButton.addEventListener('click',function(){
+        setTimeout(function(){
+          video.muted = false;
+        },2000)
+        
+        setTimeout(function(){
+          video.volume = 0.5;
+          //0 a 100% pero acá son de 0 a 1
+        },2000)
+        
         video.play();
       });
       pauseButton.addEventListener('click',function(){
@@ -68,6 +82,13 @@
       });
       video.addEventListener('progress',function(){
         console.log("Mientras el navegador descarga audio y video");
+      });
+      
+      volumeUpButton.addEventListener('click',function(){
+        if(video.volume <= 0.9) video.volume += 0.1;
+      });
+      volumeDownButton.addEventListener('click',function(){
+        if(video.volume >= 0.1) video.volume -= 0.1;
       });      
     </script>
   </body>
