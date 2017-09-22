@@ -16,16 +16,36 @@
     </video>
     <button id="playButton">Reproducir</button>
     <button id="pauseButton">Pausar</button>
+    <button id="stopButton">Detener</button>
+    <button id="backwardButton">&lt;&lt;</button>
+    <button id="forwardButton">&gt;&gt;</button>
     <script type="text/javascript">
       let video = document.getElementById('video');
+      
       let playButton = document.getElementById('playButton');
       let pauseButton = document.getElementById('pauseButton');
+      let stopButton = document.getElementById('stopButton');
+      
+      let backwardButton = document.getElementById('backwardButton');
+      let forwardButton = document.getElementById('forwardButton');
+      
       playButton.addEventListener('click',function(){
         video.play();
-      })
+      });
       pauseButton.addEventListener('click',function(){
         video.pause();
-      })      
+      });
+      stopButton.addEventListener('click',function(){
+        video.pause();
+        video.currentTime = 0;
+      });
+      
+      backwardButton.addEventListener('click',function(){
+        video.currentTime -= 1;
+      });
+      forwardButton.addEventListener('click',function(){
+        video.currentTime += 1;
+      });      
     </script>
   </body>
 </html>
