@@ -45,6 +45,29 @@
       });
       forwardButton.addEventListener('click',function(){
         video.currentTime += 1;
+      });
+      
+      video.addEventListener('play',function(){
+        console.log("Reproducir");
+      });
+      video.addEventListener('pause',function(){
+        console.log("Pause");
+      });
+      video.addEventListener('playing',function(){
+        //Se dispara también cuando el video se pausa porque esta descargando
+        console.log("Playing");
+      });
+      video.addEventListener('timeupdate',function(){
+        console.log(video.currentTime);
+      });
+      video.addEventListener('canplay',function(){
+        console.log("Puede reproducir");
+      });       
+      video.addEventListener('durationchange',function(){
+        console.log("Duracion cambió");
+      });
+      video.addEventListener('progress',function(){
+        console.log("Mientras el navegador descarga audio y video");
       });      
     </script>
   </body>
