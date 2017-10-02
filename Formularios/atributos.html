@@ -3,25 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Atributos Placeholder, required y autofocus</title>
+    <style>
+      /* pseudoelemento se ve, pero no aparece en el arbol del DOM */
+      ::-webkit-input-placeholder {
+        color: red;
+      }
+      ::-moz-placeholder {
+        color: red;
+      }
+      :-moz-placeholder {
+        color: red;
+      }
+      :-ms-input-placeholder {
+        color: red;
+      }
+      input:placeholder-shown {
+        font-size: 2em;
+      }
+    </style>    
   </head>
-  <style>
-    /* pseudoelemento se ve, pero no aparece en el arbol del DOM */
-    ::-webkit-input-placeholder {
-      color: red;
-    }
-    ::-moz-placeholder {
-      color: red;
-    }
-    :-moz-placeholder {
-      color: red;
-    }
-    :-ms-input-placeholder {
-      color: red;
-    }
-    input:placeholder-shown {
-      font-size: 2em;
-    }
-  </style>
   <body>
     <form>
       <input type="email" placeholder="Coloca tu correo electrónico" autofocus required/>
